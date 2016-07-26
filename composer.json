@@ -10,7 +10,6 @@
     "require": {
         "php": ">=5.5",
         "zendframework/zendframework": "~2.5",
-        "zendframework/zendpdf": "^2.0",
-        "twbs/bootstrap": "^3.3"
+        "zendframework/zendpdf": "^2.0"
     }
 }
