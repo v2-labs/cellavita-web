@@ -20,7 +20,10 @@
 		// Prepare the donor form elements to display
 		$donor = $form->get('donor');
 		$address = $donor->get('address');
-		
+		$telephones = $donor->get('telephones');
+		$vaccines = $donor->get('vaccines');
+		$travels = $donor->get('travels');
+		$exams = $donor->get('exams');
 	?>
 
 	<h2>Dados do doador</h2>
@@ -93,6 +96,34 @@
 			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('CEP')); ?></label>
 			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_zip')); ?></div>
 		</div>
+	</fieldset>
+	<fieldset class="">
+		<legend><?php echo sprintf($this->translate('Telefones')); ?></legend>
+		<div class="form-group">
+			<label class="col-sm- control-label" for=""><?php ?></label>
+			<div class="col-sim-"><?php ?></div>
+		</div>
+	</fieldset>
+	<fieldset class="">
+		<legend><?php echo sprintf($this->translate('Exames')); ?></legend>
+		<div class="form-group">
+			<label class="col-sm- control-label" for=""><?php ?></label>
+			<div class="col-sim-"><?php ?></div>
+		</div>
+	</fieldset>
+	<fieldset class="">
+		<legend><?php echo sprintf($this->translate('Vacinas')); ?></legend>
+		<div class="form-group">
+			<label class="col-sm- control-label" for=""><?php ?></label>
+			<div class="col-sim-"><?php ?></div>
+		</div>
+	</fieldset>
+	<fieldset class="">
+		<legend><?php echo sprintf($this->translate('Viagens')); ?></legend>
+		<div class="form-group">
+			<label class="col-sm- control-label" for=""><?php ?></label>
+			<div class="col-sim-"><?php ?></div>
+		</div>
 	</fieldset>  <!--
 <?php $address = $donor->get('address'); ?>
 $telephones = $donor->get('telephones');
@@ -110,7 +141,8 @@ echo $this->formCollection($donor->get('exams'));
 #echo '<button onclick="return add_exam()">Novo Exame</button>'; -->
 
 	<div class="form-group">
-		<div class="col-sm-offset-11 col-sm-1">
+		<div class="col-sm-offset-10 col-sm-2">
+			<?php echo $this->formElement($form->get('reset')); ?>&nbsp;
 			<?php echo $this->formElement($form->get('submit')); ?>&nbsp;
 		</div>
 	</div>

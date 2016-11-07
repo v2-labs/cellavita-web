@@ -33,6 +33,15 @@ class CreateDonor extends Form
 		));
 
 		$this->add(array(
+			'name' => 'reset',
+			'attributes' => array(
+				'type' => 'reset',
+				'class' => 'btn btn-default',
+				'value' => 'Cancelar',
+			),
+		));
+
+		$this->add(array(
 			'name' => 'submit',
 			'attributes' => array(
 				'type' => 'submit',
