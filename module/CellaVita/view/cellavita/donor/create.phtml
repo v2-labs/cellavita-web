@@ -102,28 +102,43 @@
 			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_zip')); ?></div>
 		</div>
 	</fieldset>
-	<fieldset class="">
+	<fieldset id="telephones" class="">
 		<legend><?php echo sprintf($this->translate('Telefones')); ?></legend>
+		<?php foreach ($telephones as $telephone) { ?>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Tipo')); ?></label>
+			<div class="col-sm-3"><?php echo $this->formRow($telephone->get('phone_type')); ?></div>
+			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Numero')); ?></label>
+			<div class="col-sm-3"><?php echo $this->formRow($telephone->get('phone_number')); ?></div>
+			<!-- <label class="col-sm- control-label" for=""><?php ?></label> -->
+			<div class="col-sm-2"><button type="button" class="btn btn-info" onclick="return add_telephone()"><span class="glyphicon glyphicon-plus glyphicon-white"></span></button></div>
+		</div>
+		<!--
+		-->
+		<?php } ?>
+		<span data-template=""></span>
+		<!--
+		-->
 		<div class="form-group">
 			<label class="col-sm- control-label" for=""><?php ?></label>
 			<div class="col-sim-"><?php ?></div>
 		</div>
 	</fieldset>
-	<fieldset class="">
+	<fieldset id="exams" class="">
 		<legend><?php echo sprintf($this->translate('Exames')); ?></legend>
 		<div class="form-group">
 			<label class="col-sm- control-label" for=""><?php ?></label>
 			<div class="col-sim-"><?php ?></div>
 		</div>
 	</fieldset>
-	<fieldset class="">
+	<fieldset id="vaccines" class="">
 		<legend><?php echo sprintf($this->translate('Vacinas')); ?></legend>
 		<div class="form-group">
 			<label class="col-sm- control-label" for=""><?php ?></label>
 			<div class="col-sim-"><?php ?></div>
 		</div>
 	</fieldset>
-	<fieldset class="">
+	<fieldset id="travels" class="">
 		<legend><?php echo sprintf($this->translate('Viagens')); ?></legend>
 		<div class="form-group">
 			<label class="col-sm- control-label" for=""><?php ?></label>

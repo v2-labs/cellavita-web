@@ -26,7 +26,6 @@ class TelephoneFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'phone_type',
 			'type' => 'Zend\Form\Element\Select',
 			'options' => array(
-				'label' => 'Tipo:',
 				'empty_option' => 'Selecione...',
 				'value_options' => array(
 					Telephone::CEL => 'Celular',
@@ -35,6 +34,8 @@ class TelephoneFieldset extends Fieldset implements InputFilterProviderInterface
 				),
 			),
 			'attributes' => array(
+				'id' => 'phoneType',
+				'class' => 'form-control',
 				'required' => 'required',
 			),
 		));
@@ -42,10 +43,9 @@ class TelephoneFieldset extends Fieldset implements InputFilterProviderInterface
 		$this->add(array(
 			'name' => 'phone_number',
 			'type' => 'Zend\Form\Element\Text',
-			'options' => array(
-				'label' => 'Numero:',
-			),
 			'attributes' => array(
+				'id' => 'phoneNumber',
+				'class' => 'form-control',
 				'required' => 'required',
 			),
 		));
@@ -53,9 +53,6 @@ class TelephoneFieldset extends Fieldset implements InputFilterProviderInterface
 		$this->add(array(
 			'name' => 'phone_id',
 			'type' => 'Zend\Form\Element\Hidden',
-			'options' => array(
-				'label' => '',
-			),
 			'attributes' => array(
 				'required' => 'required',
 			),
@@ -64,9 +61,6 @@ class TelephoneFieldset extends Fieldset implements InputFilterProviderInterface
 		$this->add(array(
 			'name' => 'donor_id',
 			'type' => 'Zend\Form\Element\Hidden',
-			'options' => array(
-				'label' => '',
-			),
 			'attributes' => array(
 				'required' => 'required',
 			),
