@@ -113,7 +113,7 @@ return array(
             'layout/layout'            => __DIR__ . '/../view/layout/layout.phtml',
             'cella-vita/index/index'   => __DIR__ . '/../view/cellavita/index/index.phtml',
             'cella-vita/auth/login'    => __DIR__ . '/../view/cellavita/auth/login.phtml',
-            'cella-vita/donor/insert'  => __DIR__ . '/../view/cellavita/donor/create.phtml',
+            'cella-vita/donor/insert'  => __DIR__ . '/../view/cellavita/donor/insert.phtml',
             'error/404'                => __DIR__ . '/../view/error/404.phtml',
             'error/index'              => __DIR__ . '/../view/error/index.phtml',
         ),
