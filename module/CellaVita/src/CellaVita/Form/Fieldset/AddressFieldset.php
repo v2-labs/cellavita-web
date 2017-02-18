@@ -28,11 +28,11 @@ class AddressFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'address_line1',
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array(
-				'id' => '',
+				'id' => 'address_line1',
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Rua das Carolinhas, 230, Apt. 42',
 			),
 		));
 
@@ -40,11 +40,11 @@ class AddressFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'address_line2',
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array(
-				'id' => '',
+				'id' => 'address_line2',
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Vale das Figueiras',
 			),
 		));
 
@@ -52,11 +52,11 @@ class AddressFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'address_state',
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array(
-				'id' => '',
+				'id' => 'address_state',
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'SP',
 			),
 		));
 
@@ -64,11 +64,11 @@ class AddressFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'address_city',
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array(
-				'id' => '',
+				'id' => 'address_city',
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Valinhos',
 			),
 		));
 
@@ -76,11 +76,11 @@ class AddressFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'address_zip',
 			'type' => 'Zend\Form\Element\Text',
 			'attributes' => array(
-				'id' => '',
+				'id' => 'address_zip',
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => '00000-000',
 			),
 		));
 
@@ -103,7 +103,7 @@ class AddressFieldset extends Fieldset implements InputFilterProviderInterface
 
 	public function getInputFilterSpecification() {
 		return array(
-			'name' => array(
+			'address_line1' => array(
 				'required' => true,
 			),
 		);

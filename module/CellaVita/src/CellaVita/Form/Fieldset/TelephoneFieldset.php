@@ -69,9 +69,15 @@ class TelephoneFieldset extends Fieldset implements InputFilterProviderInterface
 
 	public function getInputFilterSpecification() {
 		return array(
-			'name' => array(
-				'required' => true,
-			),
+#			'phone_id' => array(
+#				'required' => true,
+#			),
+#            'phone_type' => array(
+#                'required' => true,
+#            ),
+#            'phone_number' => array(
+#                'required' => true,
+#            ),
 		);
 	}
 }

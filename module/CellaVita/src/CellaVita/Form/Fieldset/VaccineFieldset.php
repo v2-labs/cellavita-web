@@ -69,9 +69,9 @@ class VaccineFieldset extends Fieldset implements InputFilterProviderInterface
 
 	public function getInputFilterSpecification() {
 		return array(
-			'name' => array(
-				'required' => true,
-			),
+#			'name' => array(
+#				'required' => true,
+#			),
 		);
 	}
 }

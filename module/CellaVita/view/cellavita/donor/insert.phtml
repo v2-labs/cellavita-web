@@ -1,16 +1,14 @@
-<!--
-// Scripts to add multiple items
-//<script>
-//    function add_category() {
-//        var currentCount = $('form > fieldset > fieldset').length;
-//        var template = $('form > fieldset > span').data('template');
-//        template = template.replace(/__index__/g, currentCount);
-//
-//        $('form > fieldset').append(template);
-//
-//        return false;
-//    }
-//</script> -->
+<script>
+    function add_collection_entry(collection) {
+        var currentCount = $('form > fieldset#'collection' > fieldset').length;
+        var template = $('form > fieldset#'collection' > span').data('template');
+        template = template.replace(/__index__/g, currentCount);
+        // Insert the new element...
+        $('form > fieldset#'collection).append(template);
+
+        return false;
+    }
+</script>
 <div class="">
 
 	<?php
@@ -33,73 +31,121 @@
 			<label class="col-sm-2 control-label" for="donorName"><?php echo sprintf($this->translate('Nome')); ?></label>
 			<div class="col-sm-10">
 				<?php echo $this->formRow($donor->get('donor_name')); ?>
-				<span class="help-block"><?php echo sprintf($this->translate('Preencher com o nome completo do doador do material genético')); ?></span>
+				<span class="help-block"><?php echo sprintf($this->translate('Nome completo do doador do material genético')); ?></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="donorRG"><?php echo sprintf($this->translate('RG')); ?></label>
 			<div class="col-sm-6">
 				<?php echo $this->formRow($donor->get('donor_rg_num')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Preencher RG somente com numeros')); ?></span>
 			</div>
 			<label class="col-sm-2 control-label" for="donorRGExp"><?php echo sprintf($this->translate('Expeditor')); ?></label>
-			<div class="col-sm-2 inline"><?php echo $this->formRow($donor->get('donor_rg_exp')); ?></div>
+			<div class="col-sm-2 inline">
+				<?php echo $this->formRow($donor->get('donor_rg_exp')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Sigla da entidade')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="donorCPF"><?php echo sprintf($this->translate('CPF')); ?></label>
-			<div class="col-sm-6"><?php echo $this->formRow($donor->get('donor_cpf_num')); ?></div>
+			<div class="col-sm-6">
+				<?php echo $this->formRow($donor->get('donor_cpf_num')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Preencher CPF somente com numeros')); ?></span>
+			</div>
 			<label class="col-sm-2 control-label" for="donorCPFExp"><?php echo sprintf($this->translate('Expeditor')); ?></label>
-			<div class="col-sm-2 inline"><?php echo $this->formRow($donor->get('donor_cpf_exp')); ?></div>
+			<div class="col-sm-2 inline">
+				<?php echo $this->formRow($donor->get('donor_cpf_exp')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Sigla da entidade')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="donorSex"><?php echo sprintf($this->translate('Genero')); ?></label>
-			<div class="col-sm-4"><?php echo $this->formRow($donor->get('donor_sex')); ?></div>
+			<div class="col-sm-4">
+				<?php echo $this->formRow($donor->get('donor_sex')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Selecione o genero')); ?></span>
+			</div>
 			<label class="col-sm-2 control-label" for="donorBirthday"><?php echo sprintf($this->translate('Nascimento')); ?></label>
-			<div class="col-sm-4 inline"><?php echo $this->formRow($donor->get('donor_birthdate')); ?></div>
+			<div class="col-sm-4 inline">
+				<?php echo $this->formRow($donor->get('donor_birthdate')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Informe data de nascimento')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="donorHeight"><?php echo sprintf($this->translate('Altura')); ?></label>
-			<div class="col-sm-4"><?php echo $this->formRow($donor->get('donor_weight')); ?></div>
 			<label class="col-sm-2 control-label" for="donorWeight"><?php echo sprintf($this->translate('Peso')); ?></label>
-			<div class="col-sm-4 inline"><?php echo $this->formRow($donor->get('donor_height')); ?></div>
+			<div class="col-sm-4">
+				<?php echo $this->formRow($donor->get('donor_weight')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Informe o peso em kilogramas')); ?></span>
+			</div>
+			<label class="col-sm-2 control-label" for="donorHeight"><?php echo sprintf($this->translate('Altura')); ?></label>
+			<div class="col-sm-4 inline">
+				<?php echo $this->formRow($donor->get('donor_height')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Informe a altura em centimetros')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="donorNation"><?php echo sprintf($this->translate('Nacionalidade')); ?></label>
-			<div class="col-sm-4"><?php echo $this->formRow($donor->get('donor_nation')); ?></div>
+			<div class="col-sm-4">
+				<?php echo $this->formRow($donor->get('donor_nation')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Informe a nacionalidade')); ?></span>
+			</div>
 			<label class="col-sm-2 control-label" for="donorNatural"><?php echo sprintf($this->translate('Natural de')); ?></label>
-			<div class="col-sm-4 inline"><?php echo $this->formRow($donor->get('donor_natural'));; ?></div>
+			<div class="col-sm-4 inline">
+				<?php echo $this->formRow($donor->get('donor_natural'));; ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Informe a naturalidade')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="donorFather"><?php echo sprintf($this->translate('Nome Pai')); ?></label>
-			<div class="col-sm-4"><?php echo $this->formRow($donor->get('donor_father')); ?></div>
+			<div class="col-sm-4">
+				<?php echo $this->formRow($donor->get('donor_father')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Nome completo do pai')); ?></span>
+			</div>
 			<label class="col-sm-2 control-label" for="donorMother"><?php echo sprintf($this->translate('Nome Mãe')); ?></label>
-			<div class="col-sm-4 inline"><?php echo $this->formRow($donor->get('donor_mother')); ?></div>
+			<div class="col-sm-4 inline">
+				<?php echo $this->formRow($donor->get('donor_mother')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Nome completo da mãe')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="donorOccupation"><?php echo sprintf($this->translate('Ocupação')); ?></label>
-			<div class="col-sm-10"><?php echo $this->formRow($donor->get('donor_occupation')); ?></div>
+			<div class="col-sm-10">
+				<?php echo $this->formRow($donor->get('donor_occupation')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Informe a ocupação')); ?></span>
+			</div>
 		</div>
 	</fieldset>
 	<fieldset class="">
 		<legend><?php echo sprintf($this->translate('Endereço')); ?></legend>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Endereço (linha 1)')); ?></label>
-			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_line1')); ?></div>
+			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Endereço')); ?></label>
+			<div class="col-sm-10">
+				<?php echo $this->formRow($address->get('address_line1')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Endereço - linha 1')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Endereço (linha 2)')); ?></label>
-			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_line2')); ?></div>
+			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Complemento')); ?></label>
+			<div class="col-sm-10">
+				<?php echo $this->formRow($address->get('address_line2')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Endereço - linha 2')); ?></span>
+			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Estado')); ?></label>
-			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_state')); ?></div>
-		</div>
-		<div class="form-group">
+			<div class="col-sm-2">
+				<?php echo $this->formRow($address->get('address_state')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Sigla do Estado')); ?></span>
+			</div>
 			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Cidade')); ?></label>
-			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_city')); ?></div>
-		</div>
-		<div class="form-group">
+			<div class="col-sm-2">
+				<?php echo $this->formRow($address->get('address_city')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Nome da cidade')); ?></span>
+			</div>
 			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('CEP')); ?></label>
-			<div class="col-sm-10"><?php echo $this->formRow($address->get('address_zip')); ?></div>
+			<div class="col-sm-2">
+				<?php echo $this->formRow($address->get('address_zip')); ?>
+				<span class="help-block"><?php echo sprintf($this->translate('Codigo CEP')); ?></span>
+			</div>
 		</div>
 	</fieldset>
 	<fieldset id="telephones" class="">
@@ -111,25 +157,32 @@
 			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Numero')); ?></label>
 			<div class="col-sm-3"><?php echo $this->formRow($telephone->get('phone_number')); ?></div>
 			<!-- <label class="col-sm- control-label" for=""><?php ?></label> -->
-			<div class="col-sm-2"><button type="button" class="btn btn-info" onclick="return add_telephone()"><span class="glyphicon glyphicon-plus glyphicon-white"></span></button></div>
+			<div class="col-sm-2"><button type="button" class="btn btn-info" onclick="return add_collection_entry('telephone')"><span class="glyphicon glyphicon-plus glyphicon-white"></span></button></div>
 		</div>
 		<!--
 		-->
 		<?php } ?>
 		<span data-template=""></span>
 		<!--
-		-->
 		<div class="form-group">
 			<label class="col-sm- control-label" for=""><?php ?></label>
 			<div class="col-sim-"><?php ?></div>
 		</div>
+        -->
 	</fieldset>
 	<fieldset id="exams" class="">
 		<legend><?php echo sprintf($this->translate('Exames')); ?></legend>
-		<div class="form-group">
-			<label class="col-sm- control-label" for=""><?php ?></label>
-			<div class="col-sim-"><?php ?></div>
+        <?php foreach ($exams as $exam) { ?>
+		<div class="form-group"><!--
+			<label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Data do Exame')); ?></label>
+			<div class="col-sim-3">--><?php echo $this->formRow($exam->get('exam_date')); ?><!-- </div>
+            <label class="col-sm-2 control-label" for=""><?php echo sprintf($this->translate('Arquivo do Exame')); ?></label>
+            <div class="col-sim-3"> --><?php echo $this->formRow($exam->get('exam_pdf')); ?><!--</div> -->
+
+            <div class="col-sim-2"><button type="button" class="btn btn-info" onclick="return add_collection_entry('exam')"><span class="glyphicon glyphicon-plus glyphicon-white"></span></button></div>
 		</div>
+        <?php } ?>
+        <span data-template=""></span>
 	</fieldset>
 	<fieldset id="vaccines" class="">
 		<legend><?php echo sprintf($this->translate('Vacinas')); ?></legend>

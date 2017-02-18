@@ -22,6 +22,14 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 		$this->setHydrator(new ClassMethods(false))
 			 ->setObject(new Donor());
 
+        $this->add(array(
+            'name' => 'donor_id',
+            'type' => 'Zend\Form\Element\Hidden',
+            'attributes' => array(
+                'required' => 'required',
+            ),
+        ));
+
 		$this->add(array(
 			'name' => 'donor_name',
 			'type' => 'Zend\Form\Element\Text',
@@ -30,7 +38,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '35',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Alfredo Aristarco',
 			),
 		));
 
@@ -42,7 +50,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => '99999999',
 			),
 		));
 
@@ -54,7 +62,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'SSP-SP',
 			),
 		));
 
@@ -66,7 +74,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => '99999999999',
 			),
 		));
 
@@ -78,7 +86,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'RF',
 			),
 		));
 
@@ -107,7 +115,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => '85',
 			),
 		));
 
@@ -116,10 +124,10 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 			'type' => 'Zend\Form\Element\Number',
 			'attributes' => array(
 				'id' => 'donorHeight',
-				'size' => '',
+				'size' => '4',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => '178',
 			),
 		));
 
@@ -128,10 +136,10 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 			'type' => 'Zend\Form\Element\Date',
 			'attributes' => array(
 				'id' => 'donorBirthdate',
-				'size' => '',
+				'size' => '10',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => '10/22/1979',
 			),
 		));
 
@@ -143,7 +151,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Brasileira',
 			),
 		));
 
@@ -155,7 +163,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Valinhos',
 			),
 		));
 
@@ -167,7 +175,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Pedro Aristarco',
 			),
 		));
 
@@ -179,7 +187,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
+				'placeholder' => 'Maria Aristarco',
 			),
 		));
 
@@ -191,15 +199,7 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 				'size' => '',
 				'class' => 'form-control',
 				'required' => 'required',
-				'placeholder' => 'Type something...',
-			),
-		));
-
-		$this->add(array(
-			'name' => 'donor_id',
-			'type' => 'Zend\Form\Element\Hidden',
-			'attributes' => array(
-				'required' => 'required',
+				'placeholder' => 'Filosofo',
 			),
 		));
 
@@ -279,9 +279,24 @@ class DonorFieldset extends Fieldset implements InputFilterProviderInterface
 
 	public function getInputFilterSpecification() {
 		return array(
-			'name' => array(
-				'required' => true,
-			),
+#			'donor_name' => array(
+#				'required' => true,
+#			),
+#            'donor_rg_num' => array(
+#                'required' => true,
+#            ),
+#            'donor_rg_exp' => array(
+#                'required' => true,
+#            ),
+#            'donor_cpf_num' => array(
+#                'required' => true,
+#            ),
+#            'donor_cpf_exp' => array(
+#                'required' => true,
+#            ),
+#            'donor_sex' => array(
+#                'required' => true,
+#            ),
 		);
 	}
 }

@@ -2,8 +2,10 @@
 /**
  * Zend Framework (http://framework.zend.com/)
  *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the
+ *            canonical source repository
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc.
+ *            (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -26,9 +28,14 @@ class ExamFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'exam_date',
 			'type' => 'Zend\Form\Element\Date',
 			'options' => array(
-				'label' => 'Data:',
+				'label' => 'Data do Exame',
+                'label_attributes' => array(
+                    'class' =>'col-sm-2 control-label',
+                ),
 			),
 			'attributes' => array(
+                'id' => 'exam_date',
+                'class' => 'col-sm-3',
 				'required' => 'required',
 			),
 		));
@@ -37,9 +44,14 @@ class ExamFieldset extends Fieldset implements InputFilterProviderInterface
 			'name' => 'exam_pdf',
 			'type' => 'Zend\Form\Element\File',
 			'options' => array(
-				'label' => 'Exame:',
+				'label' => 'Arquivo do Exame',
+                'label_attributes' => array(
+                    'class' => 'col-sm-2 control-label',
+                ),
 			),
 			'attributes' => array(
+                'id' => 'exam_pdf',
+                'class' => 'col-sm-3',
 				'required' => 'required',
 			),
 		));
@@ -47,9 +59,6 @@ class ExamFieldset extends Fieldset implements InputFilterProviderInterface
 		$this->add(array(
 			'name' => 'exam_id',
 			'type' => 'Zend\Form\Element\Hidden',
-			'options' => array(
-				'label' => '',
-			),
 			'attributes' => array(
 				'required' => 'required',
 			),
@@ -58,9 +67,6 @@ class ExamFieldset extends Fieldset implements InputFilterProviderInterface
 		$this->add(array(
 			'name' => 'donor_id',
 			'type' => 'Zend\Form\Element\Hidden',
-			'options' => array(
-				'label' => '',
-			),
 			'attributes' => array(
 				'required' => 'required',
 			),
@@ -69,9 +75,12 @@ class ExamFieldset extends Fieldset implements InputFilterProviderInterface
 
 	public function getInputFilterSpecification() {
 		return array(
-			'name' => array(
-				'required' => true,
-			),
+#			'exam_date' => array(
+#				'required' => true,
+#			),
+#           'exam_pdf' => array(
+#               'required' => true,
+#           ),
 		);
 	}
 }

@@ -200,21 +200,21 @@ class Donor
 		return $this;
 	}
 
-	public function getTelephones() {
-		return $this->telephones;
-	}
-
-	public function setTelephones(array $value) {
-		$this->telephones = $value;
-		return $this;
-	}
-
 	public function getAddress() {
 		return $this->address;
 	}
 
 	public function setAddress(Address $value) {
 		$this->address = $value;
+		return $this;
+	}
+
+	public function getTelephones() {
+		return $this->telephones;
+	}
+
+	public function setTelephones(array $value) {
+		$this->telephones = $value;
 		return $this;
 	}
 
@@ -246,28 +246,30 @@ class Donor
 	}
 
 	public function exchangeArray(array $data) {
-		$this->donor_id         =(!empty($data['donor_id'])) ? $data['donor_id'] : null;
-		$this->donor_name       =(!empty($data['donor_name'])) ? $data['donor_name'] : null;
-		$this->donor_rg_num     =(!empty($data['donor_rg_num'])) ? $data['donor_rg_num'] : null;
-		$this->donor_rg_exp     =(!empty($data['donor_rg_exp'])) ? $data['donor_rg_exp'] : null;
-		$this->donor_cpf_num    =(!empty($data['donor_cpf_num'])) ? $data['donor_cpf_num'] : null;
-		$this->donor_cpf_exp    =(!empty($data['donor_cpf_exp'])) ? $data['donor_cpf_exp'] : null;
-		$this->donor_sex        =(!empty($data['donor_sex'])) ? $data['donor_sex'] : null;
-		$this->donor_weight     =(!empty($data['donor_weight'])) ? $data['donor_weight'] : null;
-		$this->donor_height     =(!empty($data['donor_height'])) ? $data['donor_height'] : null;
-		$this->donor_birthdate  =(!empty($data['donor_birthdate'])) ? $data['donor_birthdate'] : null;
-		$this->donor_nation     =(!empty($data['donor_nation'])) ? $data['donor_nation'] : null;
-		$this->donor_natural    =(!empty($data['donor_natural'])) ? $data['donor_natural'] : null;
-		$this->donor_father     =(!empty($data['donor_father'])) ? $data['donor_father'] : null;
-		$this->donor_mother     =(!empty($data['donor_mother'])) ? $data['donor_mother'] : null;
-		$this->donor_occupation =(!empty($data['donor_occupation'])) ? $data['donor_occupation'] : null;
-		$this->donor_created    =(!empty($data['donor_created'])) ? $data['donor_created'] : null;
+        \Zend\Debug\Debug::dump($data);
+
+		$this->donor_id         =(isset($data['donor_id'])) ? $data['donor_id'] : null;
+		$this->donor_name       =(isset($data['donor_name'])) ? $data['donor_name'] : null;
+		$this->donor_rg_num     =(isset($data['donor_rg_num'])) ? $data['donor_rg_num'] : null;
+		$this->donor_rg_exp     =(isset($data['donor_rg_exp'])) ? $data['donor_rg_exp'] : null;
+		$this->donor_cpf_num    =(isset($data['donor_cpf_num'])) ? $data['donor_cpf_num'] : null;
+		$this->donor_cpf_exp    =(isset($data['donor_cpf_exp'])) ? $data['donor_cpf_exp'] : null;
+		$this->donor_sex        =(isset($data['donor_sex'])) ? $data['donor_sex'] : null;
+		$this->donor_weight     =(isset($data['donor_weight'])) ? $data['donor_weight'] : null;
+		$this->donor_height     =(isset($data['donor_height'])) ? $data['donor_height'] : null;
+		$this->donor_birthdate  =(isset($data['donor_birthdate'])) ? $data['donor_birthdate'] : null;
+		$this->donor_nation     =(isset($data['donor_nation'])) ? $data['donor_nation'] : null;
+		$this->donor_natural    =(isset($data['donor_natural'])) ? $data['donor_natural'] : null;
+		$this->donor_father     =(isset($data['donor_father'])) ? $data['donor_father'] : null;
+		$this->donor_mother     =(isset($data['donor_mother'])) ? $data['donor_mother'] : null;
+		$this->donor_occupation =(isset($data['donor_occupation'])) ? $data['donor_occupation'] : null;
+		$this->donor_created    =(isset($data['donor_created'])) ? $data['donor_created'] : null;
 		/* Related One-to-One elements */
-		$this->address          =(!empty($data['address'])) ? $data['address'] : null;
+		$this->address          =(isset($data['address'])) ? $data['address'] : null;
 		/* Related One-to-Many elements */
-		$this->telephones       =(!empty($data['telephones'])) ? $data['telephones'] : null;
-		$this->vaccines         =(!empty($data['vaccines'])) ? $data['vaccines'] : null;
-		$this->travels          =(!empty($data['travels'])) ? $data['travels'] : null;
-		$this->exams            =(!empty($data['exams'])) ? $data['exams'] : null;
+		$this->telephones       =(isset($data['telephones'])) ? $data['telephones'] : null;
+		$this->vaccines         =(isset($data['vaccines'])) ? $data['vaccines'] : null;
+		$this->travels          =(isset($data['travels'])) ? $data['travels'] : null;
+		$this->exams            =(isset($data['exams'])) ? $data['exams'] : null;
 	}
 }

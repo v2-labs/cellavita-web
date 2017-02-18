@@ -9,10 +9,11 @@
 
 namespace CellaVita\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use CellaVita\Form\CreateDonor;
+use CellaVita\Form\DonorForm;
 use CellaVita\Model\Entity\Donor;
+use Zend\View\Model\ViewModel;
+use Zend\Authentication\AuthenticationService;
+use Zend\Mvc\Controller\AbstractActionController;
 
 class DonorController extends AbstractActionController
 {
@@ -28,19 +29,31 @@ class DonorController extends AbstractActionController
     }
 
     public function insertAction() {
-        $form = new CreateDonor();
-        $donor = new Donor();
-        $form->bind($donor);
+        // Collect authentication info
+        $auth = new AuthenticationService();
+        $loggedInUser = $auth->getIdentity();
+        // If not authenticated, redirect to login page
+        #if ($loggedInUser == null) {
+        #    return $this->redirect()->toRoute(
+        #        'auth', array('action' => 'login')
+        #    );
+        #}
+        // Otherwise, present the private content
+        #else {
+            $form = new DonorForm();
+            $donor = new Donor();
+            $form->bind($donor);
 
-        $request = $this->getRequest();
-        if ($request->isPost()) {
-            $form->setData($request->getPost());
-            if ($form->isValid()) {
-                var_dump($donor);
+            $request = $this->getRequest();
+            if ($request->isPost()) {
+                $form->setData($request->getPost());
+                if ($form->isValid()) {
+                    return \Zend\Debug\Debug::dump($donor);
+                }
             }
-        }
-        return array(
-            'form' => $form,
-        );
+            return array(
+                'form' => $form,
+            );
+        #}
     }
 }
