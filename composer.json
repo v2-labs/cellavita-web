@@ -10,6 +10,7 @@
     "require": {
         "php": ">=5.5",
         "zendframework/zendframework": "~2.5",
-        "zendframework/zendpdf": "^2.0"
+        "zendframework/zendpdf": "^2.0",
+        "neilime/zf2-twb-bundle": "3.*@stable"
     }
 }
