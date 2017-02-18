@@ -1,6 +1,11 @@
 <?php
-
-
+/**
+ * Zend Framework (http://framework.zend.com/)
+ *
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
 
 namespace Api\Client;
 
@@ -21,11 +26,18 @@ class ApiClient {
 	protected static $hostURL = "http://cellavita-api.test";
 	protected static $hostAPI = "/v1/%s/%s";
 	protected static $oAuthSS = "/oauth";
+	# ....
+	protected static $hostAuth = "/v1/auth/login";
 
 	protected static function getClientInstance() {
 		if (self::$client === null) {
 			self::$client = new Client();
 		}
+	}
+
+	public static function authenticate($postData) {
+		$url = self::$hostURL . self::$hostAuth;
+		return self::doRequest($url, $postData, Request::METHOD_POST);
 	}
 
 	public static function get($service, $id) {
@@ -77,3 +89,5 @@ class ApiClient {
 		}
 	}
 }
+
+E7FREe7ZGCQ7
