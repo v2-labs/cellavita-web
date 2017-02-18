@@ -89,14 +89,16 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
+            'CellaVita\Controller\Auth'
+                => 'CellaVita\Controller\AuthController',
             'CellaVita\Controller\Index'
                 => 'CellaVita\Controller\IndexController',
             'CellaVita\Controller\Donor'
                 => 'CellaVita\Controller\DonorController',
         ),
         'factories' => array(
-            'CellaVita\Controller\Auth'
-                => 'CellaVita\Controller\Factory\AuthControllerFactory',
+        #    'CellaVita\Controller\Auth'
+        #        => 'CellaVita\Controller\Factory\AuthControllerFactory',
             'CellaVita\Controller\Culture'
                 => 'CellaVita\Controller\Factory\CultureControllerFactory',
             'CellaVita\Controller\Manage'
