@@ -13,10 +13,10 @@ use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 use Zend\Stdlib\Hydrator\ClassMethods;
 
-class CreateDonor extends Form
+class DonorForm extends Form
 {
 	public function __construct() {
-		parent::__construct('create_donor');
+		parent::__construct('donor');
 
 		$this->setHydrator(new ClassMethods(false))
 			 ->setInputFilter(new InputFilter())
