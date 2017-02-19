@@ -16,7 +16,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction() {
         // Set some layout variables
-        $this->layout()->setVariable('optionMenu', 'cadastro');
+        $this->layout()->setVariable('optionMenu', '');
         // Create a view object to populate
         $indexMainView = new ViewModel();
         #// Set the template to use for this view rendering

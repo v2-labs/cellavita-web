@@ -95,14 +95,10 @@ return array(
                 => 'CellaVita\Controller\IndexController',
             'CellaVita\Controller\Donor'
                 => 'CellaVita\Controller\DonorController',
-        ),
-        'factories' => array(
-        #    'CellaVita\Controller\Auth'
-        #        => 'CellaVita\Controller\Factory\AuthControllerFactory',
             'CellaVita\Controller\Culture'
-                => 'CellaVita\Controller\Factory\CultureControllerFactory',
+                => 'CellaVita\Controller\CultureController',
             'CellaVita\Controller\Manage'
-                => 'CellaVita\Controller\Factory\ManageControllerFactory',
+                => 'CellaVita\Controller\ManageController',
         ),
     ),
     'view_manager' => array(
